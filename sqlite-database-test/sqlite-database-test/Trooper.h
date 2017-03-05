@@ -6,8 +6,8 @@
 class Trooper
 {
 	public:
-		explicit Trooper();
-		virtual ~Trooper();
+		explicit Trooper() {};
+		virtual ~Trooper() {};
 
 		// Setters.
 		// ATTACK.
