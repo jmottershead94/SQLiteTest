@@ -17,5 +17,6 @@ To edit database entries:
 6. Edit to your hearts content!
 
 **NOTE** 
+
 Some of these database entries have constraints on them, so unexpected values cannot be placed in them. For example:
 	* Most if not all entries check to make sure the data entered is above 0.
