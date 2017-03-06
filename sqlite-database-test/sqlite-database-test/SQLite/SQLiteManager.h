@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 #include "../Trooper.h"
 #include "DatabaseManager.h"
 #include "sqlite3.h"
@@ -17,11 +18,17 @@ class SQLiteManager : public DatabaseManager
 		bool load() override;
 		void save() override;
 
+		/*
+		 * Provides access to the trooper data gathered from the data base.
+		 * @param const vector the data structure that holds all of the trooper data.
+		 */
+		inline vector<Trooper> const trooperData() const { return _trooperData; }
+
 	protected:
 		void onLoad() override;
 		void onSave() override;
 
 	private:
 		sqlite3* _databaseConnection = nullptr;
-		Trooper _scout, _trickster, _hoplite;
+		vector<Trooper> _trooperData;
 };
