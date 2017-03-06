@@ -1,8 +1,5 @@
-#include <iostream>
-#include "SQLite/sqlite3.h"
+#include "SQLite/SQLiteManager.h"
 #include "Trooper.h"
-
-using namespace std;
 
 int main()
 {
@@ -11,6 +8,9 @@ int main()
 
 	trooper.setCurrentHealth(50.0f);
 	cout << "Trooper Health = " << trooper.currentHealth() << endl;
+
+	SQLiteManager sqliteManager;
+	sqliteManager.load();
 
 	return 0;
 }

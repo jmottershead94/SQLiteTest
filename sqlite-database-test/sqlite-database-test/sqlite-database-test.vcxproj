@@ -147,9 +147,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SQLite\SQLiteManager.cpp" />
     <ClCompile Include="SQLite\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SQLite\DatabaseManager.h" />
+    <ClInclude Include="SQLite\SQLiteManager.h" />
     <ClInclude Include="SQLite\sqlite3.h" />
     <ClInclude Include="Trooper.h" />
   </ItemGroup>
