@@ -1,5 +1,4 @@
 #include "SQLite/SQLiteManager.h"
-#include "Trooper.h"
 
 int main()
 {

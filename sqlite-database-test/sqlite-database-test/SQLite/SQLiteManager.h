@@ -1,10 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include "../Trooper.h"
 #include "DatabaseManager.h"
 #include "sqlite3.h"
-
-using namespace std;
 
 /*
  * Handles calls to the SQLite database.
@@ -24,4 +23,5 @@ class SQLiteManager : public DatabaseManager
 
 	private:
 		sqlite3* _databaseConnection = nullptr;
+		Trooper _scout, _trickster, _hoplite;
 };

@@ -51,7 +51,35 @@ void SQLiteManager::onLoad()
 {
 	cout << "Loaded, now do something with the database." << endl;
 
+	int databaseConnection;
+	char* sqlCommand;
+	sqlite3_stmt* scoutResults;
+	sqlite3_stmt* tricksterResults;
+	sqlite3_stmt* hopliteResults;
 
+	// Select all of the objects in the Units table.
+	sqlCommand = "SELECT * from Units";
+
+	// Send the command to the SQLite database and fetch the results to the scout results variable.
+	databaseConnection = sqlite3_prepare_v2(_databaseConnection, sqlCommand, -1, &scoutResults, 0);
+
+	// Loading trooper data!
+	sqlite3_step(scoutResults);
+	_scout.trooperID(sqlite3_column_int(scoutResults, 0));
+	_scout.trooperName(reinterpret_cast<const char*>(sqlite3_column_text(scoutResults, 1)));
+	_scout.setRawAttack(static_cast<float>(sqlite3_column_double(scoutResults, 2)));
+	_scout.setRawAttackRange(static_cast<float>(sqlite3_column_double(scoutResults, 3)));
+	_scout.setBonusAttack(static_cast<float>(sqlite3_column_double(scoutResults, 4)));
+	_scout.setBonusAttackRange(static_cast<float>(sqlite3_column_double(scoutResults, 5)));
+	_scout.setAttackRange(sqlite3_column_int(scoutResults, 6));
+	_scout.setRawDefence(static_cast<float>(sqlite3_column_double(scoutResults, 7)));
+	_scout.setCriticalChance(static_cast<float>(sqlite3_column_double(scoutResults, 8)));
+	_scout.setCriticalMultiplier(static_cast<float>(sqlite3_column_double(scoutResults, 9)));
+	_scout.setEvasion(static_cast<float>(sqlite3_column_double(scoutResults, 10)));
+	_scout.setCooldown(static_cast<float>(sqlite3_column_double(scoutResults, 11)));
+	_scout.setMaxHealth(static_cast<float>(sqlite3_column_double(scoutResults, 12)));
+	_scout.setMovement(sqlite3_column_int(scoutResults, 13));
+	_scout.setNumberOfActions(sqlite3_column_int(scoutResults, 14));
 }
 
 /*

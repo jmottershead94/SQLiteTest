@@ -1,5 +1,9 @@
 #pragma once
 
+#include <string>
+
+using namespace std;
+
 /*
  * This is used to store data about troopers.
  */
@@ -10,6 +14,9 @@ class Trooper
 		virtual ~Trooper() {};
 
 		// Setters.
+		inline void const trooperID(const int value)				{ id = value; }
+		inline void const trooperName(const string value)			{ name = value; }
+
 		// ATTACK.
 		inline void const setRawAttack(const float value)			{ attackRaw = value; }
 		inline void const setRawAttackRange(const float value)		{ attackRawRange = value; }
@@ -37,6 +44,9 @@ class Trooper
 		inline void const setNumberOfActions(const int value)		{ numberOfActions = value; }
 
 		// Getters.
+		inline int const trooperID()			{ return id; }
+		inline string const trooperName()		{ return name; }
+
 		// ATTACK.
 		inline float const rawAttack()			{ return attackRaw; }
 		inline float const rawAttackRange()		{ return attackRawRange; }
@@ -64,6 +74,10 @@ class Trooper
 		inline int const actions()				{ return numberOfActions; }
 
 	protected:
+		// Trooper Stats.
+		int id = 0;
+		string name = "";
+
 		// Attack Stats.
 		float attackRaw = 10.0f;
 		float attackRawRange = 2.0f;
